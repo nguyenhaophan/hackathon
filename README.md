@@ -16,6 +16,5 @@
     -> /components contains different components of the app such as LoginForm, List, ListItem
     -> /view contains different screen (view) of the app
     -> /context/style contains reused colors
-### App Look
-![image](https://user-images.githubusercontent.com/56063292/162616612-22bb978b-e7fc-4462-b71c-ac22cab8c100.png)
-![image](https://user-images.githubusercontent.com/56063292/162616640-a028bc92-981c-4434-b91d-e3f0d5f8e0ab.png)
+### App OutLook
+
