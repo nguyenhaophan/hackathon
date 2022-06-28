@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
   },
   buttonField: {
     marginTop: 5,
-    backgroundColor: "#5F9A3B",
+    backgroundColor: "#FFFFFF",
     borderRadius: 5,
     borderWidth: 2,
     width: 150,
