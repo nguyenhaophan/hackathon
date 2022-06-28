@@ -1,7 +1,8 @@
 {
   "expo": {
     "name": "app-name",
-    "slug": "app-name",
+    "slug": "motion-tracking",
+    "owner": "haophan7",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -18,6 +19,7 @@
     ],
     "ios": {
       "supportsTablet": true
+      
     },
     "android": {
       "adaptiveIcon": {
