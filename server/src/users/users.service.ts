@@ -1,10 +1,34 @@
-import { ConflictException, Injectable } from '@nestjs/common'
+import {
+  ConflictException,
+  Injectable,
+  NotFoundException,
+  UnauthorizedException,
+} from '@nestjs/common'
+import { InjectModel } from '@nestjs/mongoose'
+import { Model } from 'mongoose'
 import * as bcrypt from 'bcrypt'
 
 import { RegisterUserDto } from './dto/register-user.dto'
+import { UserDocument } from './user.schema'
 
 @Injectable()
 export class UsersService {
+  constructor(@InjectModel('User') private userModel: Model<UserDocument>) {}
+
+  async getAll(): Promise<UserDocument[]> {
+    return await this.userModel.find()
+  }
+
+  async findOne(username: string): Promise<UserDocument | undefined> {
+    const foundUser = await this.userModel.findOne({ username: username })
+
+    if (!foundUser) {
+      throw new UnauthorizedException('Invalid username')
+    }
+
+    return foundUser
+  }
+
   async registerUser(registerUserDto: RegisterUserDto): Promise<UserDocument> {
     const existedUser = await this.userModel.findOne({
       username: registerUserDto.username,
@@ -39,5 +63,9 @@ export class UsersService {
     }
 
     return 'User deleted successfully'
+  }
+
+  async findById(id: string): Promise<UserDocument | undefined> {
+    return await this.userModel.findById(id)
   }
 }
