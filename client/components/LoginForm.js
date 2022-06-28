@@ -1,9 +1,9 @@
-import React from 'react';
-import { View, StyleSheet, TouchableOpacity } from 'react-native';
-import { useForm, Controller } from 'react-hook-form';
+import React from "react";
+import { View, StyleSheet, TouchableOpacity } from "react-native";
+import { useForm, Controller } from "react-hook-form";
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Input, Text, Button } from 'react-native-elements';
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Input, Text, Button } from "react-native-elements";
 
 /**
  * it contains login form and action that takes
@@ -20,8 +20,8 @@ const LoginForm = () => {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      username: '',
-      password: '',
+      username: "",
+      password: "",
     },
   });
 
@@ -52,7 +52,7 @@ const LoginForm = () => {
             placeholder="Username"
             inputContainerStyle={{ borderBottomWidth: 0 }}
             inputStyle={styles.inputField}
-            errorMessage={errors.username && 'Username is required.'}
+            errorMessage={errors.username && "Username is required."}
             errorStyle={styles.errorsField}
           />
         )}
@@ -74,22 +74,22 @@ const LoginForm = () => {
             placeholder="Password"
             inputContainerStyle={{ borderBottomWidth: 0 }}
             inputStyle={styles.inputField}
-            errorMessage={errors.password && 'Password is required.'}
+            errorMessage={errors.password && "Password is required."}
             errorStyle={styles.errorsField}
           />
         )}
         name="password"
       />
-     
+
       <View>
         <Button
           title="Login"
           onPress={handleSubmit(onSubmit)}
           loading={false}
-          loadingProps={{ size: 'small', color: 'white' }}
+          loadingProps={{ size: "small", color: "white" }}
           buttonStyle={styles.buttonField}
           containerStyle={{
-            alignItems: 'center',
+            alignItems: "center",
           }}
         />
       </View>
@@ -103,52 +103,51 @@ const LoginForm = () => {
   );
 };
 const styles = StyleSheet.create({
-  container:{
-    top:'20%',
-    margin:40,
-    alignItems: 'center'
+  container: {
+    top: "20%",
+    margin: 40,
+    alignItems: "center",
   },
   inputField: {
     width: 100,
     height: 40,
-    backgroundColor: 'rgba(96, 162, 23, 0.3)',
+    backgroundColor: "#FFFFFF",
     borderRadius: 24,
     paddingHorizontal: 15,
     fontSize: 15,
-    color: 'rgba(0, 0, 0, 0.42)',
+    color: "rgba(0, 0, 0, 0.42)",
   },
   errorsField: {
-    color: 'red',
+    color: "red",
     marginHorizontal: 15,
-    marginTop:1,
+    marginTop: 1,
   },
   buttonField: {
-    marginTop:5,
-    backgroundColor: '#5F9A3B',
+    marginTop: 5,
+    backgroundColor: "#5F9A3B",
     borderRadius: 5,
     borderWidth: 2,
     width: 150,
-    height:50,
-    borderColor: 'white',
+    height: 50,
+    borderColor: "white",
     borderRadius: 30,
-   
   },
   registerContainer: {
-    top:15,
+    top: 15,
     flexGrow: 1,
-    justifyContent: 'center',
-    alignItems: 'flex-end',
+    justifyContent: "center",
+    alignItems: "flex-end",
     paddingVertical: 15,
-    flexDirection: 'row',
+    flexDirection: "row",
   },
   registerText: {
-    color: '#bd157a',
+    color: "#bd157a",
     fontSize: 15,
   },
   registerButton: {
-    color: '#700d49',
+    color: "#700d49",
     fontSize: 15,
-    fontWeight: '500',
+    fontWeight: "500",
   },
 });
 

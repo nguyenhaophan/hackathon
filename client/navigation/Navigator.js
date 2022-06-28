@@ -15,7 +15,7 @@ const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const RootNavigator = () => {
-  const [onGoing, success] = useState(true);
+  const [onGoing, success] = useState(false);
   return onGoing ? (
     <Tab.Navigator
       initialRouteName="Home"
