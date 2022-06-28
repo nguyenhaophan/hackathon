@@ -4,6 +4,7 @@ import { useForm, Controller } from "react-hook-form";
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Input, Text, Button } from "react-native-elements";
+import { client } from "../utils/api";
 
 /**
  * it contains login form and action that takes
@@ -31,6 +32,12 @@ const LoginForm = () => {
    */
   const onSubmit = async (data) => {
     try {
+      const res = await client.post('http://localhost:5000/api/v1/users/login', {
+        username: data.username,
+        password: data.password
+      })
+
+      console.log(res.data)
     } catch (error) {
       console.error(error);
     }
