@@ -1,6 +1,6 @@
 import { useContext } from "react";
 
-import LoginForm from "../components/LoginForm";
+// import LoginForm from "../components/LoginForm";
 import {
   View,
   StyleSheet,
@@ -16,9 +16,9 @@ const HomeScreen = () => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.body}>
-        <View>
+        {/* <View>
           <LoginForm />
-        </View>
+        </View> */}
         <View style={styles.bodyContent}>
           <Text style={styles.name}>John Doe</Text>
           <Text style={styles.info}>UX Designer / Mobile developer</Text>
@@ -35,6 +35,12 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  bodyContent: {
+    // position: flex,
+    // // flexDirection: "column",
+    // topMargin: 2em,
+    backgroundColor: "#eb2a9e",
   },
 });
 

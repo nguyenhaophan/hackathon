@@ -1,11 +1,11 @@
-import axios from 'axios';
+import axios from "axios";
 
-export const BASE_URL = 'https://';
+export const BASE_URL = "https://localhost:5000/api/v1";
 export const client = axios;
 
 /**
  * Create API url for connection
- * @param {string} route API 
+ * @param {string} route API
  * @param {string} param URL parameter (optional)
  */
 const BuildUrl = (route, param) => {
@@ -13,14 +13,13 @@ const BuildUrl = (route, param) => {
   return param ? `${URL}/${param}` : URL;
 };
 
-
 export const routes = {
   auth: {
     /**
      * Login User. No Authondication needed
      * @method POST
      */
-    login: BuildUrl('login'),
+    login: BuildUrl("users"),
   },
   user: {
     /**
@@ -28,51 +27,51 @@ export const routes = {
      * @method GET
      * @param {string} username
      */
-    nameExists: (username) => BuildUrl('users/username', username),
+    nameExists: (username) => BuildUrl("users/username", username),
 
     /**
      * Create new user. No Authondication needed
      * @method POST
      */
-    create: BuildUrl('users'),
+    create: BuildUrl("users"),
 
     /**
      * Modify existing user values.
-     * Token Authondication Needed 
+     * Token Authondication Needed
      * @method PUT
      * @param {number} id
      */
-    modify: BuildUrl('modify-user'),
+    modify: BuildUrl("modify-user"),
 
     /**
      * Get user info by id.
-     * Token Authondication Needed 
+     * Token Authondication Needed
      * @method GET
      * @param {number} id.
      */
-    info: (id) => BuildUrl('users', id),
+    info: (id) => BuildUrl("users", id),
   },
   task: {
     /**
      * Request the task info for specified userd id.
-    * Token Authondication Needed 
-    * @url tasks/mobiletest
+     * Token Authondication Needed
+     * @url tasks/mobiletest
      * @method GET
      * @param {string} id .
      */
-    allTask: (id) => BuildUrl('tasks/mobiletest', id),
+    allTask: (id) => BuildUrl("tasks/mobiletest", id),
   },
   /**
    * File Upload
    */
   uploads: {
-     /**
+    /**
      * Upload Task realated files and doc.
-     * Token Authondication Needed 
+     * Token Authondication Needed
      * multipart/form-data
      * @method POST
      */
-      updateTask: BuildUrl('task-upload-file'),
+    updateTask: BuildUrl("task-upload-file"),
   },
   /**
    * comment control and handle
@@ -80,33 +79,32 @@ export const routes = {
   comment: {
     /**
      * Delete user's comment.
-     * Token Authondication Needed 
+     * Token Authondication Needed
      * @method DELETE
      * @param {number} id comment id.
      */
-    delete: (id) => BuildUrl('comments', id),
+    delete: (id) => BuildUrl("comments", id),
 
     /**
      * Post new comment.
-     * Token Authondication Needed 
+     * Token Authondication Needed
      * @method POST
      */
-    post: BuildUrl('create-comments'),
+    post: BuildUrl("create-comments"),
 
     /**
      * Get all comments by current user.
-     * Token Authondication Needed 
+     * Token Authondication Needed
      * @method PUT
      */
-    byUser: BuildUrl('update-comments'),
+    byUser: BuildUrl("update-comments"),
 
     /**
      * Get all comments posted to task id.
-     * Token Authondication Needed 
+     * Token Authondication Needed
      * @method GET
      * @param {number} id task id.
      */
-     getAllCommentByTaskId: (id) => BuildUrl('comments/taskid', id),
+    getAllCommentByTaskId: (id) => BuildUrl("comments/taskid", id),
   },
-  
 };
