@@ -15,12 +15,21 @@ const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const RootNavigator = () => {
-  const [onGoing, success] = useState(false);
+  const [onGoing, success] = useState(true);
   return onGoing ? (
     <Tab.Navigator
       initialRouteName="Home"
       screenOptions={{
+        // tabBarActiveBackgroundColor: "#eb2a9e",
         tabBarActiveTintColor: "#e91e63",
+        barStyle: {
+          backgroundColor: "grey",
+        },
+        headerStyle: {
+          backgroundColor: "grey",
+          position: "center",
+          marginLeft: "40px",
+        },
       }}
     >
       <Tab.Screen
