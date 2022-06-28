@@ -3,8 +3,8 @@ import { MongooseModule } from '@nestjs/mongoose'
 
 import { UsersService } from './users.service'
 import { UsersController } from './users.controller'
-import { AuthModule } from 'src/auth/auth.module'
 import { UserSchema } from './user.schema'
+import { AuthModule } from 'src/auth/auth.module'
 
 @Module({
   imports: [

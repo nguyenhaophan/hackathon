@@ -11,7 +11,7 @@ import {
 
 import { AuthService } from 'src/auth/auth.service'
 import { JwtAuthGuard } from 'src/auth/jwt-strategy/jwt-auth.guard'
-import { LocalAuthGuard } from 'src/auth/local.strategy/local-auth.guard'
+import { LocalAuthGuard } from 'src/auth/local-strategy/local-auth.guard'
 import { RegisterUserDto } from './dto/register-user.dto'
 import { UsersService } from './users.service'
 
@@ -21,12 +21,6 @@ export class UsersController {
     private readonly usersService: UsersService,
     private readonly authService: AuthService,
   ) {}
-
-  // @UseGuards(GoogleAuthGuard)
-  // @Get('google-login')
-  // googleLogin(@Req() req: any) {
-  //   return this.authService.validateUser(req)
-  // }
 
   @Get('all')
   getAll() {
