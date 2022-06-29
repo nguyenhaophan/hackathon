@@ -5,6 +5,7 @@ import {
   Get,
   Param,
   Post,
+  Put,
   Request,
   UseGuards,
 } from '@nestjs/common'
@@ -12,6 +13,7 @@ import {
 import { AuthService } from 'src/auth/auth.service'
 import { JwtAuthGuard } from 'src/auth/jwt-strategy/jwt-auth.guard'
 import { LocalAuthGuard } from 'src/auth/local-strategy/local-auth.guard'
+import { PinLocationDto } from './dto/pin-location.dto'
 import { RegisterUserDto } from './dto/register-user.dto'
 import { UsersService } from './users.service'
 
@@ -49,5 +51,14 @@ export class UsersController {
   @Delete('delete/:userId')
   deleteUser(@Param('userId') userId: string) {
     return this.usersService.deleteUser(userId)
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Put('pin-location/:userId')
+  pinLoc(
+    @Body() pinLocationDto: PinLocationDto,
+    @Param('userId') userId: string,
+  ) {
+    return this.usersService.pinLoc(userId, pinLocationDto)
   }
 }

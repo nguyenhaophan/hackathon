@@ -10,6 +10,7 @@ import * as bcrypt from 'bcrypt'
 
 import { UserDocument } from './user.schema'
 import { RegisterUserDto } from './dto/register-user.dto'
+import { PinLocationDto } from './dto/pin-location.dto'
 
 @Injectable()
 export class UsersService {
@@ -60,5 +61,24 @@ export class UsersService {
 
   async findById(id: string): Promise<UserDocument | undefined> {
     return await this.userModel.findById(id)
+  }
+
+  async pinLoc(userId: string, pinLocationDto: PinLocationDto) {
+    const updatingUser = await this.userModel.findById(userId)
+
+    if (!updatingUser) {
+      throw new NotFoundException('User not found')
+    }
+
+    const updatedUser = await this.userModel.findByIdAndUpdate(userId, {
+      $set: {
+        pinnedLocation: {
+          latitude: pinLocationDto.latitude,
+          longtitude: pinLocationDto.longtitude,
+        },
+      },
+    })
+
+    return updatedUser
   }
 }

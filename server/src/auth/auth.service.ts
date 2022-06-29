@@ -11,10 +11,6 @@ export class AuthService {
     private jwtService: JwtService,
   ) {}
 
-  // async validateUser(@Req() req: any) {
-  //   return req
-  // }
-
   async validateTenant(username: string, pass: string): Promise<any> {
     const user = await this.usersService.findOne(username)
 
